@@ -1,0 +1,37 @@
+	<?php
+	$this->title = "Гостевая книга";
+	$this->headTitle($this->title);
+	echo "<div class='form1'> $this->form </div>" ;
+	?>
+<hr> 
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr class="bg-warning">
+				<th><a href='/../index/index/sort/1'>Дата</a></th>
+				<th>Пользователь</th>
+				<th>Email</th>
+				<th><a href='/../index/index/sort/2'>Тема</a></th>
+			</tr>
+		 </thead>
+		 <tbody>
+			<?php
+				echo $this->partialLoop('partials/messages.phtml', $this->messages);
+			?>
+		</tbody>
+	</table>
+	<hr>
+	<div>
+		Страница:
+		<?php
+			for($i=1; ($i< $this->maxPages); $i++){       
+				if ($this->currentPage <> $i){
+					//$url=$this->url(array('page'=>$i));
+					$url="/../index/index/page/$i";
+					echo"&nbsp;<a href='$url'>$i</a>&nbsp;";
+				}else{
+					echo"&nbsp;$i&nbsp;";
+				}
+			}		
+		?>
+	</div>
+	<br> <br>
